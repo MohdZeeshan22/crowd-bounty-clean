@@ -1,64 +1,28 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
-
-const app = express();
-
 /* =========================
    CORS CONFIGURATION
 ========================= */
 
-const corsOptions = {
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://crowd-bounty-clean.vercel.app/"
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-};
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://crowd-bounty-clean.vercel.app" // ✅ NO trailing slash
+];
 
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
 
-/* =========================
-   HEALTH CHECK
-========================= */
-app.get("/", (req, res) => {
-  res.status(200).send("Backend is running 🚀");
-});
-
-/* =========================
-   ROUTES
-========================= */
-app.use("/api/auth", require("./routes/authRoutes"));
-app.use("/api/bugs", require("./routes/bugRoutes"));
-app.use("/api/wallet", require("./routes/walletRoutes"));
-app.use("/api/company", require("./routes/companyRoutes"));
-
-/* =========================
-   DATABASE CONNECTION
-========================= */
-
-const PORT = process.env.PORT || 5000;
-
-if (!process.env.MONGO_URI) {
-  console.error("❌ MONGO_URI is not defined");
-  process.exit(1);
-}
-
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("✅ MongoDB Connected");
-
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-    });
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
-  .catch((err) => {
-    console.error("❌ MongoDB Connection Error:", err);
-    process.exit(1);
-  });
+);
+
+app.options("*", cors());
