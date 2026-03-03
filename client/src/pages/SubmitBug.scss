@@ -1,0 +1,63 @@
+.submit-bug-page {
+  min-height: 100vh;
+  background: #0b0f14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.submit-card {
+  width: 420px;
+  background: #10151c;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgb(245, 246, 245);
+  box-shadow: 0 0 25px rgba(0, 255, 156, 0.1);
+}
+
+.submit-card h2 {
+  color: #00ff9c;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.submit-card input,
+.submit-card textarea,
+.submit-card select {
+  width: 100%;
+  background: #0b0f14;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.submit-card textarea {
+  resize: none;
+  height: 90px;
+}
+
+.submit-card button {
+  width: 100%;
+  background: linear-gradient(90deg, #00ff9c, #00c982);
+  color: #000000;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-card button:hover {
+  opacity: 0.9;
+}
+
+.message {
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #ffffff;   /* ✅ Success message now white */
+}

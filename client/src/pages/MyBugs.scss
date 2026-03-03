@@ -1,0 +1,104 @@
+.mybugs-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #0b0f14;
+  color: #e6edf3;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.page-title {
+  margin-bottom: 30px;
+  color: #00ff9c;
+  letter-spacing: 1px;
+}
+
+.empty {
+  color: #8b949e;
+  font-size: 14px;
+}
+
+.bugs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.bug-card {
+  background: #10151c;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(0, 255, 156, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bug-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.15);
+}
+
+.bug-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bug-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.description {
+  margin: 12px 0;
+  font-size: 13px;
+  color: #b1bac4;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.status.submitted {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
+
+.status.approved {
+  background: rgba(0, 255, 156, 0.15);
+  color: #00ff9c;
+}
+
+.status.rejected {
+  background: rgba(255, 77, 77, 0.15);
+  color: #ff4d4d;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.severity.low {
+  color: #58a6ff;
+}
+
+.severity.medium {
+  color: #f1c40f;
+}
+
+.severity.high {
+  color: #ff9800;
+}
+
+.severity.critical {
+  color: #ff4d4d;
+}
+
+.reward {
+  color: #00ff9c;
+  font-weight: bold;
+}

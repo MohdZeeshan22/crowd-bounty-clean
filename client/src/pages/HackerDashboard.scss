@@ -1,0 +1,146 @@
+/* =========================
+   HACKER DASHBOARD THEME
+========================= */
+
+$bg-dark: #0b0f14;
+$panel-dark: #10151c;
+$neon: #00ff9c;
+$text-muted: #8b949e;
+$danger: #ff4d4d;
+
+.hacker-dashboard {
+  min-height: 100vh;
+  background: $bg-dark;
+  color: white;
+  padding: 2rem;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* HEADER */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.neon {
+  color: $neon;
+  text-shadow: 0 0 10px rgba(0, 255, 156, 0.6);
+}
+
+.muted {
+  color: $text-muted;
+}
+
+.highlight {
+  color: $neon;
+}
+
+.role {
+  color: #58a6ff;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: $neon;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: $neon;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px $neon;
+  }
+}
+
+/* STATS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: $panel-dark;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 156, 0.2);
+  text-align: center;
+  transition: 0.3s;
+
+  p {
+    font-size: 1.8rem;
+    color: $neon;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(0, 255, 156, 0.3);
+  }
+}
+
+/* ACTIONS */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.action-card {
+  background: linear-gradient(145deg, #0f141b, #0a0e13);
+  padding: 1.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 255, 156, 0.15);
+  transition: 0.3s;
+
+  h2 {
+    color: $neon;
+  }
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 30px rgba(0, 255, 156, 0.4);
+  }
+}
+
+/* TERMINAL */
+.terminal {
+  background: #05080d;
+  padding: 1rem;
+  border-radius: 10px;
+  color: $neon;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: $danger;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: darken($danger, 10%);
+  }
+}

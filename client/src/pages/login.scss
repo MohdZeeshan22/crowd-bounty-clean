@@ -1,0 +1,277 @@
+/* =========================
+   HACKER THEME VARIABLES
+========================= */
+$bg-dark: #0b0f14;
+$panel-dark: #10151c;
+$neon: #00ff9c;
+$text-muted: #8b949e;
+
+$transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+             opacity 0.45s ease,
+             filter 0.65s ease;
+
+/* =========================
+   BASE
+========================= */
+.login {
+  position: relative;
+  height: 100vh;
+  background: $bg-dark;
+  overflow: hidden;
+  font-family: "JetBrains Mono", monospace;
+  color: white;
+}
+
+/* =========================
+   ZOOM CONTROLLER
+========================= */
+.login.zoom-in {
+  .login__login-container {
+    transform-origin: center;
+  }
+}
+
+.login.zoom-out {
+  .login__create-container {
+    transform-origin: center;
+  }
+}
+
+/* =========================
+   SLIDING COLORED PANEL
+========================= */
+.login__colored-container {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(180deg, #00ff9c, #00c982);
+  transition: transform 1s ease;
+  z-index: 1;
+
+  &--left {
+    transform: translateX(0%);
+  }
+
+  &--right {
+    transform: translateX(235%);
+  }
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+.login__welcome-back {
+  position: absolute;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 3;
+  background: linear-gradient(180deg, #00ff9c, #00c982);
+
+  &__main-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    &__text-container {
+      width: 80%;
+
+      span:first-child {
+        font-size: 26px;
+        font-weight: bold;
+        color: #000;
+        display: block;
+      }
+
+      span:last-child {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #1f1f1f;
+        display: block;
+      }
+    }
+
+    &__button-container {
+      margin-top: 30px;
+      padding: 8px 22px;
+      border: 2px solid #000;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      background: transparent;
+      transition: 0.3s;
+
+      &:hover {
+        background: #000;
+        color: $neon;
+      }
+    }
+  }
+}
+
+/* =========================
+   CREATE ACCOUNT PANEL
+========================= */
+.login__create-container {
+  position: absolute;
+  left: 30%;
+  width: 70%;
+  height: 100%;
+  background: $panel-dark;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: $transition;
+  color: $neon;
+
+  &--active {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+    visibility: visible;
+  }
+
+  &--inactive {
+    transform: scale(0.7);
+    opacity: 0;
+    filter: blur(12px);
+    visibility: hidden;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    input,
+    select {
+      width: 280px;
+      padding: 10px;
+      background: #0b0f14;
+      border: 1px solid #1f2933;
+      color: $neon;
+      border-radius: 6px;
+
+      &:focus {
+        outline: none;
+        border-color: $neon;
+        box-shadow: 0 0 15px rgba(0, 255, 156, 0.4);
+      }
+    }
+
+    button {
+      margin-top: 16px;
+      background: linear-gradient(180deg, #00ff9c, #00c982);
+      color: #000;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 255, 156, 0.3);
+      }
+    }
+  }
+}
+
+/* =========================
+   LOGIN PANEL
+========================= */
+.login__login-container {
+  position: absolute;
+  left: 30%;
+  width: 70%;
+  height: 100%;
+  background: $panel-dark;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition;
+
+  &--active {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+    visibility: visible;
+  }
+
+  &--inactive {
+    transform: scale(1.35);
+    opacity: 0;
+    filter: blur(14px);
+    visibility: hidden;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    input {
+      width: 280px;
+      padding: 10px;
+      background: #0b0f14;
+      border: 1px solid #1f2933;
+      color: $neon;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 16px;
+      background: linear-gradient(180deg, #00ff9c, #00c982);
+      color: #000;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 255, 156, 0.3);
+      }
+    }
+  }
+}
+
+/* =========================
+   COMPANY THEME (NOW GREEN)
+========================= */
+.company-theme {
+  background: linear-gradient(135deg, #0b0f14, #10151c, #0f1f17);
+
+  .login__colored-container,
+  .login__welcome-back {
+    background: linear-gradient(180deg, #00ff9c, #00c982);
+  }
+
+  input,
+  select {
+    color: #00ff9c !important;
+  }
+
+  button {
+    background: linear-gradient(180deg, #00ff9c, #00c982);
+    color: #001f14;
+  }
+}

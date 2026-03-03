@@ -1,0 +1,45 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  transition: background 0.3s ease;
+}
+
+/* =========================
+   THEME SYSTEM
+========================= */
+
+/* Hacker Theme */
+body.hacker-theme {
+  background: #0b0f14;
+  color: #00ff9c;
+}
+
+/* Corporate Theme */
+body.company-theme {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+/* =========================
+   REMOVE CRA DEFAULTS
+========================= */
+
+.App,
+.App-header,
+.App-logo,
+.App-link {
+  all: unset;
+}
+
+/* Optional smooth page feel */
+html, body {
+  min-height: 100%;
+}
